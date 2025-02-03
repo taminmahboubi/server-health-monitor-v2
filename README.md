@@ -27,3 +27,34 @@ $9: 0.03,    <-- 5-minute load average
 $10: 0.01    <-- 15-minute load average
 
 and echo the result.
+
+----------------------------------------------------------------------
+then we want the memory usage:
+
+using the commands:
+
+-free
+to display information about the system's memory usage.
+example:-
+              total        used        free      shared  buff/cache   available
+Mem:        16384000     4096000     8192000      204800     4096000    12288000
+Swap:       2097152      1048576     1048576
+
+- '-m'
+to display the memory usage in megabytes:
+          total        used        free      shared  buff/cache   available
+Mem:          15993        4096        8192         200        4096       12288
+Swap:          2048        1024        1024
+
+- awk
+to extract the 'used' memory $3:
+$1: Mem:
+$2: 15993    <-- Total memory (MB)
+$3: 4096     <-- Used memory (MB)   <--- This one!
+$4: 8192     <-- Free memory (MB)
+$5: 200      <-- Shared memory (MB)
+$6: 4096     <-- Buff/cache memory (MB)
+$7: 12288    <-- Available memory (MB) 
+
+
+then echo the result.
