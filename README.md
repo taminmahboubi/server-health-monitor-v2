@@ -58,3 +58,47 @@ $7: 12288    <-- Available memory (MB)
 
 
 then echo the result.
+
+
+-----------------------------------------------------------------------------
+then we want disk usage:
+
+using the commands: 
+
+-df 
+to display information about the disk space usage for all mounted filesystems.
+example:-
+
+Filesystem     1K-blocks    Used Available Use% Mounted on
+/dev/sda1       10485760 4194304   6291456  40% /
+tmpfs             819200       0    819200   0% /dev/shm
+
+
+-'-h' 
+this option displays the disk usage in a human-readable format(kb,mb,gb)
+example:-
+
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        10G  4.0G  6.0G  40% /
+tmpfs           800M     0  800M   0% /dev/shm
+
+- '/'
+this argument specifies that only the root filesystem should be displayed.
+exmaple:-
+
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        10G  4.0G  6.0G  40% /
+
+
+- awk
+to extract the used percentage $5:
+$1: Filesystem  (/dev/sda1)
+$2: Size        (10G)
+$3: Used        (4.0G)
+$4: Avail       (6.0G)
+$5: Use%        (40%) <--- this one
+$6: Mounted on  (/)
+
+
+then echo the output.
+

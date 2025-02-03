@@ -9,3 +9,7 @@ echo "CPU Usage: $cpu_usage"
 
 memory_usage=$(free -m | awk '/Mem:/ {print $3}')
 echo "Memory Usage: $memory_usage MB"
+
+# Display the disk usage
+disk_usage=$(df -h / | awk '/\// {print $5}')
+echo "Disk Usage: $disk_usage"
