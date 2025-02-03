@@ -102,3 +102,18 @@ $6: Mounted on  (/)
 
 then echo the output.
 
+---------------------------------------------------------------
+-adding threshholds of 90, a default threshold for cpu, memory and disk usage
+-adding basic alerts
+
+if statements to compare the cpu/memory/disk usage to the thresholds:
+if [ "$cpu_usage" -gt "$CPU_THRESHOLD" ]; then
+	echo "ALERT!: CPU usage is $cpu_usage% !"
+fi
+
+-gt 
+greather than
+
+
+- tr -d ','
+the -d tells 'tr' to delete specified characters, in this case ',' all commas
