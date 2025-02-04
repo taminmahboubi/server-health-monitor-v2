@@ -3,14 +3,14 @@ another script to monitor CPU, memory, disk usage
 
 first we want the 5-minute CPU load average, using the command:
 
-- uptime
+-uptime
 to give a quick summary of the systems status 
 example:- 
 
 15:32:45 up  2:15,  3 users,  load average: 0.08, 0.03, 0.01 
 
 
-- awk 
+-awk 
 to extract it, in this case:
 
 uptime | awk '{print $10}'
@@ -40,13 +40,13 @@ example:-
 Mem:        16384000     4096000     8192000      204800     4096000    12288000
 Swap:       2097152      1048576     1048576
 
-- '-m'
+-'-m'
 to display the memory usage in megabytes:
           total        used        free      shared  buff/cache   available
 Mem:          15993        4096        8192         200        4096       12288
 Swap:          2048        1024        1024
 
-- awk
+-awk
 to extract the 'used' memory $3:
 $1: Mem:
 $2: 15993    <-- Total memory (MB)
@@ -82,7 +82,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 /dev/sda1        10G  4.0G  6.0G  40% /
 tmpfs           800M     0  800M   0% /dev/shm
 
-- '/'
+-'/'
 this argument specifies that only the root filesystem should be displayed.
 exmaple:-
 
@@ -90,7 +90,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 /dev/sda1        10G  4.0G  6.0G  40% /
 
 
-- awk
+-awk
 to extract the used percentage $5:
 $1: Filesystem  (/dev/sda1)
 $2: Size        (10G)
@@ -115,7 +115,7 @@ fi
 greather than
 
 
-- tr -d ','
+-tr -d ','
 the -d tells 'tr' to delete specified characters, in this case ',' all commas
 
 -------------------------------------------------------------------
@@ -133,10 +133,11 @@ to handle floating point numbers!
 ---------------------------------------------------------------------
 -create a log entry at: /var/log/server_health.log   <---- this is the log file
 
-# Log file
+-Log file
 ALERT_LOG="/var/log/server_health.log"
 
-- create a function to use for each log alert, giving the date plus the first argument (in our case, text + the cup/memory/disk usage)
+-create a function to use for each log alert, giving the date plus the first argument (in our case, text + the cup/memory/disk usage)
+
 log_alert(){
    echo "[$(date)] Alert!: $1" >> "$ALERT_LOG"
 }
