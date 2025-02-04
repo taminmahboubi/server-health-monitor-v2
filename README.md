@@ -117,3 +117,16 @@ greather than
 
 - tr -d ','
 the -d tells 'tr' to delete specified characters, in this case ',' all commas
+
+-------------------------------------------------------------------
+EDIT:
+
+-change threshold for cpu and disk usage to 90.0
+
+-calculate the cpu usage=$(uptime | awk '{print $(NF-2)' | tr -d ',')
+
+-change the if statements for cpu and disk usage to:
+	if (( $(echo "$cpu_usage > $CPU_THRESHOLD" | bc -l) )); then ..
+to handle floating point numbers!
+
+
