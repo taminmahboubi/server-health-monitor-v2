@@ -130,3 +130,20 @@ EDIT:
 to handle floating point numbers!
 
 
+---------------------------------------------------------------------
+-create a log entry at: /var/log/server_health.log   <---- this is the log file
+
+# Log file
+ALERT_LOG="/var/log/server_health.log"
+
+- create a function to use for each log alert, giving the date plus the first argument (in our case, text + the cup/memory/disk usage)
+log_alert(){
+   echo "[$(date)] Alert!: $1" >> "$ALERT_LOG"
+}
+
+function use:-
+
+log_alert "CPU usage is: $cpu_usage"
+
+ 
+
